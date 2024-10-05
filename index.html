@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: #1e1e1e;
+            border-bottom: 2px solid #1e90ff;
+        }
+
+        h1 {
+            color: #1e90ff;
+            font-size: 2.5em;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-item {
+            display: none;
+            padding: 20px;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            transition: all 0.5s ease;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            background: #1e90ff;
+            color: #121212;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            font-size: 1em;
+        }
+
+        nav button:hover {
+            background: #1c86ee;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            background: #1e1e1e;
+            color: #e0e0e0;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .project {
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #1e90ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #1c86ee;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px 0;
+        }
+
+        /* Gaya untuk simbol di bagian kontak */
+        .contact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-list li {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .contact-list li i {
+            margin-right: 10px;
+            color: #1e90ff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Izzatun Nissa</h1>
+        <div class="carousel">
+            <div class="carousel-item active" id="about">
+                <h2>Tentang Saya</h2>
+                <img src="izza.jpg" alt="Foto Saya" class="profile-photo">
+                <p>Halo! Saya Izza dari SMK N 2 Magelang. Saat ini saya sedang duduk di bangku kelas 11 jurusan PPLG.</p>
+                <p>Saya percaya bahwa setiap proyek adalah kesempatan untuk belajar dan berkembang. Maka dari itu, saya siap mengikuti serangkaian acara magang yang akan dilakukan mulai tanggal 12 Oktober 2024.</p>
+            </div>
+            
+            <div class="carousel-item" id="portfolio">
+                <h2>Portofolio Saya</h2>
+                <div class="project">
+                    <h3>Proyek 1</h3>
+                    <p>Instrument Pop Indie - Izza</p>
+                    <a href="That You - Izza.mp3" target="_blank">Lihat Proyek</a>
+                </div>
+                <div class="project">
+                    <h3>Proyek 2</h3>
+                    <p>Web Dinamis Perpus</p>
+                    <a href="app new - izza.zip" target="_blank">Lihat Proyek</a>
+                </div>
+                <div class="project">
+                    <h3>Proyek 3</h3>
+                    <p>Toddo Apps</p>
+                    <a href="todoapps.z" target="_blank">Lihat Proyek</a>
+                </div>
+            </div>
+            <div class="carousel-item" id="contact">
+                <h2>Kontak</h2>
+                <p>Saya selalu terbuka untuk diskusi dan kolaborasi. </p>
+                    <p>Silahkan hubungi kontak di bawah ini</p>
+                <ul class="contact-list">
+                    <li><i class="fas fa-envelope"></i><a href="mailto:zaizanisa080212@gmail.com">zaizanisa080212@gmail.com</a></li>
+                    <li><i class="fab fa-instagram"></i><a href="https://www.instagram.com/izza.zsna?igsh=MWZ0aDE4amsyMmcxaA==" target="_blank">Instagram</a></li>
+                    <li><i class="fab fa-github"></i><a href="https://github.com/IzzaAja12" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <nav>
+            <button onclick="showSlide(0)">Tentang Saya</button> <br><br>
+            <button onclick="showSlide(1)">Portofolio</button> <br><br>
+            <button onclick="showSlide(2)">Kontak</button> <br><br>
+        </nav>
+    </header>
+
+    <footer>
+        <p>&copy; 2024 | Izzatun Nissa</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-item');
+            
+            slides[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+        }
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
